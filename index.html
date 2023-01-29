@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <script src="signupform.js" defer></script>
+    <title>Sign-up Form</title>
+</head>
+<body>
+    <div class="container">
+        <div class="left">
+            <div class="logo">
+                <img src="./img/logo-Placeholder.jpg" alt="logo" width=200px; heigh=200px; class="logito">
+                <h1 class="ShannonC">Shannon Chaulet</h1>
+            </div>
+            <div class="credit-block">
+                <h1 class="credit"><b>Photo by <u>Shannon Chaulet</u></b></h1>
+            </div>
+        </div>
+        <div class="right">
+            <div class="info">
+                <h2>This is not a real online service! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Necessitatibus, commodi!
+            <br>Sign up now to get started.<br><br>
+            You <i>know</i> you want to.
+                </h2>
+            <h1>Let's get started!</h1>
+            <form action="example.com/path" method="post">
+                <div class="form-fields">
+                    <div class="form-left">
+                        <div>
+                            <label for="first_name">First Name:</label><br>
+                            <input type="text" name="first_name" id="first_name">
+                        </div>
+                        <div>
+                            <label for="user_email">Email Address:</label><br>
+                            <input type="email" id="user_email" name="email" placeholder="you@example.com">
+                        </div>
+                        <div>
+                            <label for="user_password">Password:</label><br>
+                            <input type="password" id="user_password" name="password">
+                        </div>
+                        
+                    </div>
+                    <div class="form-right">
+                        <div>
+                            <label for="last_name">Last Name:</label><br>
+                            <input type="text" name="last_name" id="last_name">
+                        </div>
+                        <div>
+                            <label for="phone_number">Phone Number:</label><br>
+                            <input type="tel" id="phone_number" name="phone_number" placeholder="e.g. (999) 999-9999">
+                        </div>
+                        <div>
+                            <label for="user_password">Confirm Password:</label><br>
+                            <input type="confirmpassword" id="confirm_user_password" name="confirmPassword">
+                        </div>
+                    </div>
+                    </form>
+                </div>
+                <div><br></div>
+                <div class="account button"><button type="submit">Create Account</button></div>
+                <div class="log-in"><p>Already have an account?</p><a href="#">Log in</a></div>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>
