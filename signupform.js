@@ -9,22 +9,22 @@ var error = document.getElementById("error");
 
 // When the user clicks on a field, the border turns blue
 password.onfocus = function() {
-    password.style.borderColor = "blue";
+    password.style.borderColor = "#e6007e";
 }
 confirmpassword.onfocus = function() {
-    confirmpassword.style.borderColor = "blue";
+    confirmpassword.style.borderColor = "#e6007e";
 }
 fname.onfocus = function() {
-    fname.style.borderColor = "blue";
+    fname.style.borderColor = "#e6007e";
 }
 lname.onfocus = function() {
-    lname.style.borderColor = "blue";
+    lname.style.borderColor = "#e6007e";
 }
 email.onfocus = function() {
-    email.style.borderColor = "blue";
+    email.style.borderColor = "#e6007e";
 }
 number.onfocus = function() {
-    number.style.borderColor = "blue";
+    number.style.borderColor = "#e6007e";
 }
 
 // When the user clicks off a field, the border either returns to normal or validates the value

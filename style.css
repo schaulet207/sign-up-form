@@ -1,7 +1,7 @@
 /* style.css */
 
 html {
-    background-color: rgba(142, 39, 245, 0.13);
+    background-color: rgba(219, 91, 0, 0.47);
     font-family: 'Montserrat', sans-serif;
     overflow: hidden;
 }
@@ -9,6 +9,11 @@ html {
 :root {
     --main-color: rgba(86, 39, 245, 0.8);
     --txt: rgba(94, 94, 98, 1);
+    --color: #e6007e;
+}
+
+body {
+    margin: 0;
 }
 
 .container {
@@ -23,7 +28,7 @@ html {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    background-image: url(./img/barcelona.jpg);
+    background-image: url(./img/background2.jpg);
     background-position: center;
     background-size: 100vh;
     background-repeat: no-repeat;
@@ -44,15 +49,24 @@ html {
 .logo {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: center;
+    align-items: center;
     position: relative;
     top: 20vh;
     gap: 10px;
     padding: 15px 0;
     background-color: rgba(0, 0, 0, 0.7);
     width: 40vw;
+    height: 10vh;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+.logito {
+    position: relative;
+    left: 2vw;
+    height: 120px;
+    width: 100px;
 }
 
 .ShannonC {
@@ -60,7 +74,11 @@ html {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    color: var(--txt)
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Outfit', sans-serif;
+    color: white;
+    padding: 80px;
+    font-size: 38px;
 }
 
 .info {
@@ -112,6 +130,7 @@ html {
 }
 
 button {
+    
     font-size: 16px;
     font-weight: bold;
 
@@ -121,10 +140,12 @@ button {
     padding: 10px 40px;
     cursor: pointer;
     margin-left: 12px;
+    height: 50px;
+    width: 200px;
 }
 
 button:hover {
-    background-color: #76AEED;
+    background-color: var(--color);
 }
 
 button:active {
@@ -142,7 +163,7 @@ input#first_name {
 
 input#first_name:focus {
     outline: none;
-    border-width: 3px;
+    border-width: 2px;
 }
 
 input#last_name {
@@ -151,7 +172,7 @@ input#last_name {
 
 input#last_name:focus {
     outline: none;
-    border-width: 3px;
+    border-width: 2px;
 }
 
 input#user_email {
@@ -160,7 +181,7 @@ input#user_email {
 
 input#user_email:focus {
     outline: none;
-    border-width: 3px;
+    border-width: 2px;
 }
 
 input#phone_number {
@@ -169,7 +190,7 @@ input#phone_number {
 
 input#phone_number:focus {
     outline: none;
-    border-width: 3px;
+    border-width: 2px;
 }
 
 input#user_password {
@@ -178,7 +199,7 @@ input#user_password {
 
 input#user_password:focus {
     outline: none;
-    border-width: 3px;
+    border-width: 2px;
 }
 
 input#confirm_user_password {
@@ -187,7 +208,7 @@ input#confirm_user_password {
 
 input#confirm_user_password:focus {
     outline: none;
-    border-width: 3px;
+    border-width: 2px;
 }
 
 .error {
@@ -224,4 +245,14 @@ input#confirm_user_password:focus {
     gap: 10px;
     padding-left: 20px;
     font-size: 12px;
+}
+
+h1 {
+    font-size: 20px;
+    padding-left: 10px;
+}
+
+label {
+    font-size: 12px;
+    font-weight: bolder;
 }
