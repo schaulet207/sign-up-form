@@ -1,4 +1,4 @@
-// set up variables
+// Variables
 var password = document.getElementById("user_password");
 var confirmpassword = document.getElementById("confirm_user_password");
 var fname = document.getElementById("first_name");
@@ -9,48 +9,54 @@ var error = document.getElementById("error");
 var error2 = document.getElementById("error2");
 var placeholder = document.getElementById("phone");
 
+// Error variables
+const pwError = document.querySelector('#password-error');
+const pwCError = document.querySelector('#confirmpassword-error');
+const fnameError = document.querySelector('#fname-error');
+const lnameError = document.querySelector('#lname-error');
+const emailError = document.querySelector('#email-error');
+const telError = document.querySelector('#number-error');
+
 // When the user clicks on a field, or presses any key, the border changes color
 
-fname.onfocus = function() {
-    if (fname.value.length == 0) {
+fname.addEventListener("input", function (event) {
+    if (fname.value === '') {
+      fnameError.textContent = 'Please type in your first name.';
+      fname.style.borderColor = "red";
+    } else {
+      fnameError.textContent = '';
+      fname.style.borderColor = "green";
+    }
+  }); 
+
+  fname.onfocus = function() {
+    if (fname.value === '') {
+        fnameError.textContent = 'Please type in your first name.';
         fname.style.borderColor = "red";
-    }
-    else if (fname.value.length > 0) {
+      } else {
+        fnameError.textContent = '';
         fname.style.borderColor = "green";
-    }
+      }
 }
 
-fname.onkeydown = function() {
-    if (fname.value.length == 0 && event.key != "Backspace") {
-        fname.style.borderColor = "green";
+lname.addEventListener("input", function (event) {
+    if (lname.value === '') {
+      lnameError.textContent = 'Please type in your last name.';
+      lname.style.borderColor = "red";
+    } else {
+      lnameError.textContent = '';
+      lname.style.borderColor = "green";
     }
-    else if (event.key == "Backspace" && fname.value.length == 1) {
-    fname.style.borderColor = "red";
-    }
-    else if (fname.value.length > 0) {
-        fname.style.borderColor = "green";
-    }
-}
+  }); 
 
-lname.onfocus = function() {
-    if (lname.value.length == 0) {
+  lname.onfocus = function() {
+    if (lname.value === '') {
+        lnameError.textContent = 'Please type in your last name.';
         lname.style.borderColor = "red";
-    }
-    else if (lname.value.length > 0) {
+      } else {
+        lnameError.textContent = '';
         lname.style.borderColor = "green";
-    }
-}
-
-lname.onkeydown = function() {
-    if (lname.value.length == 0 && event.key != "Backspace") {
-        lname.style.borderColor = "green";
-    }
-    else if (event.key == "Backspace" && lname.value.length == 1) {
-    lname.style.borderColor = "red";
-    }
-    else if (lname.value.length > 0) {
-        lname.style.borderColor = "green";
-    }
+      }
 }
 
 email.onfocus = function() 
@@ -58,9 +64,11 @@ email.onfocus = function()
  if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(RegForm.email.value))
   {
     email.style.borderColor = "green";
+    emailError.textContent = '';
   }
   else {
     email.style.borderColor = "red";
+    emailError.textContent = 'Please enter a valid email.';
   }
 }
 
@@ -69,9 +77,11 @@ email.onblur = function()
  if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(RegForm.email.value))
   {
     email.style.borderColor = "green";
+    emailError.textContent = '';
   }
   else {
     email.style.borderColor = "red";
+    emailError.textContent = 'Please enter a valid email.';
   }
 }
 
@@ -80,9 +90,11 @@ email.onkeydown = function()
  if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(RegForm.email.value))
   {
     email.style.borderColor = "green";
+    emailError.textContent = '';
   }
   else {
     email.style.borderColor = "red";
+    emailError.textContent = 'Please enter a valid email.';
   }
 }
 
@@ -91,9 +103,11 @@ number.onfocus = function()
     if (number.value.indexOf('X') > -1 || (number.value.length == 0))
     {
       number.style.borderColor = "red";
+      telError.textContent = 'Please enter a valid phone number.';
     }
     else {
       number.style.borderColor = "green";
+      telError.textContent = '';
     }
 }
 
@@ -102,9 +116,11 @@ number.onblur = function()
     if (number.value.indexOf('X') > -1 || (number.value.length == 0))
     {
       number.style.borderColor = "red";
+      telError.textContent = 'Please enter a valid phone number.';
     }
     else {
       number.style.borderColor = "green";
+      telError.textContent = '';
     }
 }
 
@@ -113,9 +129,11 @@ number.onkeyup = function()
     if (number.value.indexOf('X') > -1 || (number.value.length == 0))
     {
       number.style.borderColor = "red";
+      telError.textContent = 'Please enter a valid phone number.';
     }
     else {
       number.style.borderColor = "green";
+      telError.textContent = '';
     }
 }
 
@@ -124,30 +142,26 @@ function CheckPass(password, confirmpassword, error) {
     if ((password.value === confirmpassword.value) && ((password.value.length > 0) || confirmpassword.value.length > 0)) {
         password.style.borderColor = "green";
         confirmpassword.style.borderColor = "green";
-        error.style.display = "none";
-        error2.style.display = "none";
-        correct.style.display = "flex";
+        pwError.textContent = '';
+        pwCError.textContent = '';
         }
     else if (password.value != confirmpassword.value) {
         password.style.borderColor = "red";
         confirmpassword.style.borderColor = "red";
-        error.style.display = "flex";
-        error2.style.display = "none";
-        correct.style.display = "none";
+        pwError.textContent = 'Passwords do not match.';
+        pwCError.textContent = '';
     }
     else if ((password.value.length === 0) && (confirmpassword.value.length === 0)) {
         password.style.borderColor = "red";
         confirmpassword.style.borderColor = "red";
-        error.style.display = "none";
-        error2.style.display = "flex";
-        correct.style.display = "none";
+        pwError.textContent = 'Please enter a password.';
+        pwCError.textContent = '';
     }
     else {
         password.style.borderColor = "red";
         confirmpassword.style.borderColor = "red";
-        error.style.display = "flex";
-        error2.style.display = "none";
-        correct.style.display = "none";
+        pwError.textContent = '';
+        pwCError.textContent = '';
     }
 }
 
