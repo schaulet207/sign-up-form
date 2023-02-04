@@ -155,60 +155,12 @@ button:active {
 input {
     font-family: 'Source Sans Pro', Helvetica, sans-serif;
     color: black;
-}
-
-input#first_name {
     width: 200px;
-}
-
-input#first_name:focus {
     outline: none;
-    border-width: 2px;
 }
 
-input#last_name {
-    width: 200px;
-}
-
-input#last_name:focus {
-    outline: none;
-    border-width: 2px;
-}
-
-input#user_email {
-    width: 200px;
-}
-
-input#user_email:focus {
-    outline: none;
-    border-width: 2px;
-}
-
-input#phone_number {
-    width: 200px;
-}
-
-input#phone_number:focus {
-    outline: none;
-    border-width: 2px;
-}
-
-input#user_password {
-    width: 200px;
-}
-
-input#user_password:focus {
-    outline: none;
-    border-width: 2px;
-}
-
-input#confirm_user_password {
-    width: 200px;
-}
-
-input#confirm_user_password:focus {
-    outline: none;
-    border-width: 2px;
+input:focus {
+    border-width: 3px;
 }
 
 .error {

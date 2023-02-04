@@ -31,12 +31,13 @@
                 </h2>
                 <br><br><br>
             <h1>Let's do this!</h1>
-            <form action="example.com/path" method="post">
+            <form name="RegForm" action="example.com/path" method="post">
                 <div class="form-fields">
                     <div class="form-left">
                         <div>
                             <label for="first_name">FIRST NAME</label><br>
-                            <input type="text" name="first_name" id="first_name" maxlength="30" required>
+                            <input id="first_name" name="first_name" type="text" required />
+                            <span></span>
                         </div>
                         <div>
                             <label for="user_email">EMAIL</label><br>
@@ -50,11 +51,11 @@
                     <div class="form-right">
                         <div>
                             <label for="last_name">LAST NAME</label><br>
-                            <input type="text" name="last_name" id="last_name" maxlength="30" required>
+                            <input type="text" name="last_name" id="last_name" value="" maxlength="30" required>
                         </div>
                         <div>
                             <label for="phone_number">PHONE NUMBER</label><br>
-                            <input type="tel" id="phone_number" name="phone_number" placeholder="e.g. (999) 999-9999" maxlength="13" required>
+                            <input type="text" id="phone_number" name="phone_number" value="" placeholder="e.g. (999) 999-9999" required>
                         </div>
                         <div>
                             <label for="user_password">CONFIRM PASSWORD</label><br>
