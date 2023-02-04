@@ -4,6 +4,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--=============== JS ===============-->
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+        
+    <!--=============== PHONE MASK ===============-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/inputmask/4.0.8/jquery.inputmask.bundle.min.js"></script>
+
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -53,10 +62,92 @@
                             <label for="last_name">LAST NAME</label><br>
                             <input type="text" name="last_name" id="last_name" value="" maxlength="30" required>
                         </div>
-                        <div>
+                        <!-- <div>
                             <label for="phone_number">PHONE NUMBER</label><br>
                             <input type="text" id="phone_number" name="phone_number" value="" placeholder="e.g. (999) 999-9999" required>
-                        </div>
+                        </div> -->
+                        <div class="phoneThings">
+                            <div>
+                                <label for="donorPhone">PHONE</label>
+                            </div>
+                            <div class="user-login-input-wrap fl-wrap">
+                                <input id="donorPhone" autocomplete="on" type="tel" inputmode="tel" name="donorPhone" />
+                                <input id="phone" type="hidden" name="phone_number" value="" />
+                            </div>
+
+                            <script>
+                                $(function () {
+                        
+                        
+                                /*
+                                * International Telephone Input v16.0.0
+                                * https://github.com/jackocnr/intl-tel-input.git
+                                * Licensed under the MIT license
+                                */
+                                var input = document.querySelectorAll("input[name=donorPhone]");
+                                var iti_el = $('.iti.iti--allow-dropdown.iti--separate-dial-code');
+                                if(iti_el.length){
+                                    iti.destroy();
+                                    
+                                    // Get the current number in the given format
+                        
+                                    
+                        
+                                }
+                                for(var i = 0; i < input.length; i++){
+                                    iti = intlTelInput(input[i], {
+                                        autoHideDialCode: false,
+                                        autoPlaceholder: "aggressive" ,
+                                        initialCountry: "us",
+                                        separateDialCode: true,
+                                        preferredCountries: ['us'],
+                                        customPlaceholder:function(selectedCountryPlaceholder,selectedCountryData){
+                                            return ''+selectedCountryPlaceholder.replace(/[0-9]/g,'X');
+                                        },
+                                        geoIpLookup: function(callback) {
+                                            $.get('https://ipinfo.io', function() {}, "jsonp").always(function(resp) {
+                                            var countryCode = (resp && resp.country) ? resp.country : "";
+                                            callback(countryCode);
+                                        });
+                                        },
+                                        utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js" // just for 
+                                });
+                        
+                                    
+                                $('input[name="donorPhone"]').on("focus click countrychange", function(e, countryData) {
+                        
+                                    var pl = $(this).attr('placeholder') + '';
+                                    var res = pl.replace( /X/g ,'9');
+                                    if(res != 'undefined'){
+                                        $(this).inputmask(res, {placeholder: "X", clearMaskOnLostFocus: true});
+                                    }
+                                    
+                                    
+                        
+                        
+                                });
+                                    
+                                    $('input[name="donorPhone"]').on("focusout", function(e, countryData) {
+                                        var intlNumber = iti.getNumber();
+                                        document.getElementById("phone").value = intlNumber;   
+                                    });
+                                    
+                            }
+                        
+                        const info = document.querySelector(".alert-info");
+                        
+                        function process(event) {
+                        event.preventDefault();
+                        
+                        const phoneNumber = phoneInput.getNumber();
+                        
+                        info.style.display = "";
+                        info.innerHTML = `Phone number in E.164 format: <strong>${phoneNumber}</strong>`;
+                        }
+                        })
+                        </script>
+                    </div>
+            
                         <div>
                             <label for="user_password">CONFIRM PASSWORD</label><br>
                             <input type="password" id="confirm_user_password" name="confirmPassword" required>
@@ -65,10 +156,10 @@
                     </form> 
                 </div>
                 <div class="error" id="error">
-                    <img src="./img/error.jpg" alt="error" width=10px; heigh=10px;> <p>Passwords do not match</p>
+                    <p>Passwords do not match</p> <img src="./img/error.jpg" alt="error" width=10px; heigh=10px;>
                 </div>
                 <div class="error2" id="error2">
-                    <img src="./img/error.jpg" alt="error" width=10px; heigh=10px;> <p>Enter a Password</p>
+                    <p> Please enter a Password</p> <img src="./img/error.jpg" alt="error" width=10px; heigh=10px;>
                 </div>
                 <div class="correct" id="correct">
                     <p>Password confirmed ✔</p>

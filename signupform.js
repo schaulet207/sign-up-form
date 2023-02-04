@@ -4,8 +4,9 @@ var confirmpassword = document.getElementById("confirm_user_password");
 var fname = document.getElementById("first_name");
 var lname = document.getElementById("last_name");
 var email = document.getElementById("user_email");
-var number = document.getElementById("phone_number");
+var number = document.getElementById("donorPhone");
 var error = document.getElementById("error");
+var placeholder = document.getElementById("phone");
 
 // When the user clicks on a field, or presses any key, the border changes color
 password.onfocus = function() {
@@ -92,7 +93,8 @@ email.onkeydown = function()
 
 number.onfocus = function() 
 {
-    if (number.value.length < 9)
+    String(number.value);
+    if (number.value.indexOf('X') > -1 || (number.value.length == 0))
     {
       number.style.borderColor = "red";
     }
@@ -103,7 +105,8 @@ number.onfocus = function()
 
 number.onblur = function() 
 {
-    if (number.value.length < 9)
+    String(number.value);
+    if (number.value.indexOf('X') > -1 || (number.value.length == 0))
     {
       number.style.borderColor = "red";
     }
@@ -114,7 +117,8 @@ number.onblur = function()
 
 number.onkeydown = function() 
 {
-    if (number.value.length < 9)
+    String(number.value);
+    if (number.value.indexOf('X') > -1 || (number.value.length == 0))
     {
       number.style.borderColor = "red";
     }
@@ -139,13 +143,12 @@ number.onkeydown = function()
 
 // Function to check whether or not the password and confirm_password fields are identical
 function CheckPass(password, confirmpassword, error) { 
-    if (password.value === confirmpassword.value) {
+    if ((password.value === confirmpassword.value) && (password.value.length > 0)) {
         password.style.borderColor = "green";
         confirmpassword.style.borderColor = "green";
         error.style.display = "none";
         error2.style.display = "none";
         correct.style.display = "flex";
-        console.log("1");
         }
     else {
         password.style.borderColor = "red";
@@ -153,16 +156,80 @@ function CheckPass(password, confirmpassword, error) {
         error.style.display = "flex";
         error2.style.display = "none";
         correct.style.display = "none";
-        console.log("3");
     }
 }
 
 // When the user clicks off the password field, border validates status w/ red or blue
 password.onblur = function() {
-    CheckPass(password, confirmpassword, error);
+    if ((password.value.length < 1) || (confirmpassword.value.length < 1))
+    {
+        password.style.borderColor = "red";
+        confirmpassword.style.borderColor = "red";
+        error.style.display = "none";
+        error2.style.display = "flex";
+        correct.style.display = "none";
+    }
+    else {
+        CheckPass(password, confirmpassword, error);
+    }
 }
 confirmpassword.onblur = function() {
-    CheckPass(password, confirmpassword, error);
+    if ((password.value.length < 1) || (confirmpassword.value.length < 1))
+    {
+        password.style.borderColor = "red";
+        confirmpassword.style.borderColor = "red";
+        error.style.display = "none";
+        error2.style.display = "flex";
+        correct.style.display = "none";
+    }
+    else {
+        CheckPass(password, confirmpassword, error);
+    }
 }
 
+password.onkeydown = function() 
+{
+    if ((password.value.length < 1) || (confirmpassword.value.length < 1))
+    {
+        password.style.borderColor = "red";
+        confirmpassword.style.borderColor = "red";
+        error.style.display = "none";
+        error2.style.display = "flex";
+        correct.style.display = "none";
+    }
+    else {
+        CheckPass(password, confirmpassword, error);
+    }
+}
+
+confirmpassword.onkeydown = function() 
+{
+    if ((password.value.length < 1) || (confirmpassword.value.length < 1))
+    {
+        password.style.borderColor = "red";
+        confirmpassword.style.borderColor = "red";
+        error.style.display = "none";
+        error2.style.display = "flex";
+        correct.style.display = "none";
+    }
+    else {
+        CheckPass(password, confirmpassword, error);
+    }
+}
+
+
+password.onfocus = function() 
+{
+    if ((password.value.length < 1) || (confirmpassword.value.length < 1))
+    {
+        password.style.borderColor = "red";
+        confirmpassword.style.borderColor = "red";
+        error.style.display = "none";
+        error2.style.display = "flex";
+        correct.style.display = "none";
+    }
+    else {
+        CheckPass(password, confirmpassword, error);
+    }
+}
 

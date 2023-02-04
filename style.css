@@ -170,9 +170,9 @@ input:focus {
     align-items: center;
     color: red;
     display: none;
-    gap: 10px;
     padding-left: 20px;
     font-size: 12px;
+    position: relative;
 }
 
 .error2 {
@@ -182,9 +182,9 @@ input:focus {
     align-items: center;
     color: red;
     display: none;
-    gap: 10px;
     padding-left: 20px;
     font-size: 12px;
+    position: relative;
 }
 
 .correct {
@@ -197,6 +197,7 @@ input:focus {
     gap: 10px;
     padding-left: 20px;
     font-size: 12px;
+    position: relative;
 }
 
 h1 {
@@ -207,4 +208,8 @@ h1 {
 label {
     font-size: 12px;
     font-weight: bolder;
+}
+
+input#donorPhone {
+    width: 210px;   
 }
