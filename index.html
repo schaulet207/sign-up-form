@@ -42,30 +42,22 @@
             <h1>Let's do this!</h1>
             <form name="RegForm" action="example.com/path" method="post">
                 <div class="form-fields">
-                    <div class="form-left">
+                    <div class="form-top">
                         <div>
                             <label for="first_name">FIRST NAME</label><br>
                             <input id="first_name" name="first_name" type="text" required />
                             <span></span>
                         </div>
                         <div>
-                            <label for="user_email">EMAIL</label><br>
-                            <input type="email" id="user_email" name="email" placeholder="you@example.com" required>
-                        </div>
-                        <div>
-                            <label for="user_password">PASSWORD</label><br>
-                            <input type="password" id="user_password" name="password" pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$" required>
-                        </div>
-                    </div>
-                    <div class="form-right">
-                        <div>
                             <label for="last_name">LAST NAME</label><br>
                             <input type="text" name="last_name" id="last_name" value="" maxlength="30" required>
                         </div>
-                        <!-- <div>
-                            <label for="phone_number">PHONE NUMBER</label><br>
-                            <input type="text" id="phone_number" name="phone_number" value="" placeholder="e.g. (999) 999-9999" required>
-                        </div> -->
+                    </div>
+                    <div class="form-mid">
+                        <div>
+                            <label for="user_email">EMAIL</label><br>
+                            <input type="email" id="user_email" name="email" placeholder="you@example.com" required>
+                        </div>
                         <div class="phoneThings">
                             <div>
                                 <label for="donorPhone">PHONE</label>
@@ -145,9 +137,14 @@
                         info.innerHTML = `Phone number in E.164 format: <strong>${phoneNumber}</strong>`;
                         }
                         })
-                        </script>
+                            </script>
+                        </div>
                     </div>
-            
+                    <div class="form-bottom">
+                        <div>
+                            <label for="user_password">PASSWORD</label><br>
+                            <input type="password" id="user_password" name="password" pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$" required>
+                        </div>
                         <div>
                             <label for="user_password">CONFIRM PASSWORD</label><br>
                             <input type="password" id="confirm_user_password" name="confirmPassword" required>
